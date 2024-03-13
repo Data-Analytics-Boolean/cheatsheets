@@ -62,8 +62,8 @@ def bigquery_segment():
     st.markdown("Google BigQuery is a fully managed, [serverless](https://en.wikipedia.org/wiki/Serverless_computing) **data warehouse and analytics platform** provided by Google Cloud. \
                 It allows you to store, analyse, and query large datasets using SQL-like queries. \
                 BigQuery is designed to be scalable, fast, and cost-effective, making it suitable for handling big data workloads.")
-    quickstart_tab, structure_tab, tips_tab, references_tab = \
-        st.tabs(["Quickstart", "Structure", "Tips", "References"])
+    quickstart_tab, structure_tab, tips_tab, resources_tab = \
+        st.tabs(["Quickstart", "Structure", "Tips", "Resources"])
 
     with quickstart_tab:
         st_code_block(caption="You can start exploring BigQuery for free in just a few minutes. Take advantage of BigQuery's sandbox to start loading and querying a [public dataset](https://cloud.google.com/bigquery/public-data) or your own data.",
@@ -96,7 +96,7 @@ def bigquery_segment():
                       """)
         st.link_button("Advanced: best practices on query optimisation", "https://cloud.google.com/bigquery/docs/best-practices-performance-compute")
 
-    with references_tab:
+    with resources_tab:
         st_code_block(caption="""
                       Below are some useful references and resources to advance your understanding: 
                       - [Google BigQuery Documentation](https://cloud.google.com/bigquery/docs): The official documentation provided by Google is a comprehensive resource that covers all aspects of BigQuery, including getting started guides, SQL reference, best practices, and more.
@@ -224,17 +224,71 @@ def sql_segment():
         )
         st.info("The `PARTITION BY` attribute is optional but useful for dividing the result set into partitions to apply the window function independently to each partition.", icon="💡")
 
+def sql_extra_segment(): 
+    st.header("SQL Extras", help="Click on the tabs below for some extras on SQL.")
+    st.markdown("In this section you will find additional useful information, best practices and resources to enhance your understanding of SQL and boost your learning curve.")
+    order_ops_tab, tips_sql_tab, mistakes_tab, resources_sql_tab = \
+        st.tabs(["Order of Operations", "Tips", "Common Mistakes", "Resources"])
+
+    with order_ops_tab:
+        st_code_block(caption="""
+                      Understanding the order in which SQL clauses are executed can help in writing more efficient and correct queries. The general order of execution is:
+                      - `FROM` and `JOIN`: Determine the total working dataset.
+                      - `WHERE`: Filters rows before grouping.
+                      - `GROUP BY`: Groups rows with the same values into summary rows.
+                      - `HAVING`: Filters groups created by GROUP BY.
+                      - `SELECT`: Specifies which columns to display in the final result.
+                      - `ORDER BY`: Sorts the final result set.
+                      - `LIMIT`: Limits the number of rows returned.
+                      """,
+        )
+        st.info("Remember, this order affects how data is processed and filtered through the query's lifecycle, influencing both the performance and the outcome of your SQL commands.", icon="💡")
+
+    with tips_sql_tab:
+        st_code_block(caption="""
+                      Below are some tips to help in your learning path: 
+                      - **Practice Regularly**: Consistent practice is key to mastering SQL. Work on various exercises, the public datasets repository and real-world problems to reinforce your understanding.
+                      - **Understand Data Types**: Familiarise yourself with different data types (e.g., integer, string, date) as they impact SQL query construction and data manipulation.
+                      - **Utilise Online Resources**: Take advantage of online tutorials, forums, and documentation to enhance your learning experience. Websites like W3Schools, Stack Overflow, and the official Google BigQuery documentation can be valuable resources.
+                      """
+        )
+
+    with mistakes_tab:
+        st_code_block(caption="""
+                      Below are some of the common mistakes to keep in mind when writing a SQL statement:
+                      - **Forgetting to specify the database**: It's important to specify the database you're working with before writing queries. Beginners may forget to include the proper database name, resulting in errors or querying the wrong database.
+                      - **Misspelling column or table names**: Typos in column or table names can lead to errors. Beginners should double-check the spelling and ensure they are using the correct case (SQL is usually case-insensitive, but it's good practice to be consistent).
+                      - **Missing or incorrect syntax**: SQL has specific syntax rules, and beginners may forget to include necessary keywords or use them incorrectly. For example, forgetting to include a semicolon at the end of a query or misplacing parentheses in complex conditions.
+                      - **Not using aliases or table prefixes**: When joining tables or using subqueries, beginners may forget to use aliases or table prefixes to differentiate columns between tables, leading to ambiguous column references.
+                      - **Improper use of WHERE and HAVING clauses**: Beginners may confuse the use of WHERE and HAVING clauses. WHERE is used to filter rows before grouping, while HAVING is used to filter grouped data. Mixing them up can lead to incorrect results.
+                      """
+        )
+
+    with resources_sql_tab:
+        st_code_block(caption="""
+                      Below are some resources and links to help you in your learning path:
+                      - [Google BigQuery documentation](https://cloud.google.com/bigquery/docs/introduction): It goes without saying, read the official documentation!
+                      - [Stack Overflow](https://stackoverflow.com/questions/tagged/sql): Chances are, someone has already asked your question here.
+                      - [SQLZoo](https://sqlzoo.net/): An interactive SQL tutorial with exercises.
+                      - [W3Schools SQL Tutorial](https://www.w3schools.com/sql/): A comprehensive SQL tutorial with examples.
+                      - [Mode Analytics SQL Tutorial](https://mode.com/sql-tutorial/): A step-by-step SQL tutorial with a focus on data analysis.
+                      - [YouTube: SQL - Full Course for Beginners](https://www.youtube.com/watch?v=HXV3zeQKqGY): A video tutorial covering SQL fundamentals.
+                      """
+        )
+
 
 def super_tab(): 
     st.title("Databases and SQL", help="Click on the tabs below to explore the different sections.")
-    tab1, tab2, tab3 = \
-        st.tabs(["Types of Databases", "Google BigQuery", "SQL Cheatsheet"])
+    tab1, tab2, tab3, tab4 = \
+        st.tabs(["Types of Databases", "Google BigQuery", "SQL Cheatsheet", "SQL Extras"])
     with tab1:
         database_segment()
     with tab2: 
         bigquery_segment()
     with tab3:
         sql_segment()
+    with tab4:
+        sql_extra_segment()
 
 super_tab()
         
