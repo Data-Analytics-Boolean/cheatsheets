@@ -16,7 +16,7 @@ with st.sidebar:
                 
                 Enroll now to begin your journey!
                 """)
-    st.link_button("Learn more", "https://boolean.careers/corso/data-analytics", type="primary")   # IT 🇮🇹
+    st.link_button("Learn more", "https://boolean.careers/corso/data-analytics?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet&utm_content=pagina_corso", type="primary")   # IT 🇮🇹
     #st.link_button("Learn more UK 🇬🇧", "https://boolean.co.uk/course/part-time-data-analytics-online-course", type="primary")  
 
 
