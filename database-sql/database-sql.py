@@ -16,8 +16,8 @@ with st.sidebar:
                 
                 Enroll now to begin your journey!
                 """)
-    st.link_button("Learn more IT 🇮🇹", "https://boolean.careers/corso/data-analytics", type="primary")  
-    st.link_button("Learn more UK 🇬🇧", "https://boolean.co.uk/course/part-time-data-analytics-online-course", type="primary")  
+    st.link_button("Learn more", "https://boolean.careers/corso/data-analytics", type="primary")   # IT 🇮🇹
+    #st.link_button("Learn more UK 🇬🇧", "https://boolean.co.uk/course/part-time-data-analytics-online-course", type="primary")  
 
 
 def st_code_block(url=None, caption=None, code=None):
@@ -320,7 +320,7 @@ def super_tab():
         sql_segment()
     with tab4:
         sql_extra_segment()
-        
+
 
 super_tab()
         
