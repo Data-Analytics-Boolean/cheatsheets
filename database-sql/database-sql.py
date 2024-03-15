@@ -16,25 +16,8 @@ with st.sidebar:
                 
                 Enroll now to begin your journey!
                 """)
-    st.link_button("Learn more", "https://boolean.careers/corso/data-analytics", type="primary")  
-
-
-def about_segment(): 
-    st.header("About Boolean")
-    st.markdown("""
-                Boolean is an online, International tech Academy. 
-
-                Our **mission** is to make training in the tech field more accessible and smart, giving everyone the opportunity to create a career from scratch. \
-                Every day we continue developing and improving a teaching method that allows people to learn complete, concrete and specific concepts in a short time.
-
-                Transform your career in just 4 months with our part-time course in **Data Analytics**, designed to teach you how to master data analysis. \
-                
-                Enroll now to begin your journey!
-                """)
-    st.link_button("🇮🇹 Data Analytics IT", "https://boolean.careers/corso/data-analytics")
-    st.link_button("🇬🇧 Data Analytics UK", "https://boolean.co.uk/course/part-time-data-analytics-online-course")
-    
-    
+    st.link_button("Learn more IT 🇮🇹", "https://boolean.careers/corso/data-analytics", type="primary")  
+    st.link_button("Learn more UK 🇬🇧", "https://boolean.co.uk/course/part-time-data-analytics-online-course", type="primary")  
 
 
 def st_code_block(url=None, caption=None, code=None):
@@ -327,8 +310,8 @@ def sql_extra_segment():
 
 def super_tab(): 
     st.title("Databases and SQL", help="Click on the tabs below to explore the different sections.")
-    tab1, tab2, tab3, tab4, tab5 = \
-        st.tabs(["Types of Databases", "Google BigQuery", "SQL Cheatsheet", "SQL Extras", "Learn More"])
+    tab1, tab2, tab3, tab4 = \
+        st.tabs(["Types of Databases", "Google BigQuery", "SQL Cheatsheet", "SQL Extras"])
     with tab1:
         database_segment()
     with tab2: 
@@ -337,8 +320,7 @@ def super_tab():
         sql_segment()
     with tab4:
         sql_extra_segment()
-    with tab5: 
-        about_segment()
+        
 
 super_tab()
         
