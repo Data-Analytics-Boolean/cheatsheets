@@ -19,21 +19,20 @@ with st.sidebar:
     st.link_button("Learn more", "https://boolean.careers/corso/data-analytics", type="primary")  
 
 
-def about_segment(): 
-    st.header("About Boolean")
-    st.markdown("""
-                Boolean is an online, International tech Academy. 
-
-                Our **mission** is to make training in the tech field more accessible and smart, giving everyone the opportunity to create a career from scratch. \
-                Every day we continue developing and improving a teaching method that allows people to learn complete, concrete and specific concepts in a short time.
-
-                Transform your career in just 4 months with our part-time course in **Data Analytics**, designed to teach you how to master data analysis. \
-                
-                Enroll now to begin your journey!
-                """)
-    st.link_button("🇮🇹 Data Analytics IT", "https://boolean.careers/corso/data-analytics")
-    st.link_button("🇬🇧 Data Analytics UK", "https://boolean.co.uk/course/part-time-data-analytics-online-course")
-    
+#def about_segment(): 
+#    st.header("About Boolean")
+#    st.markdown("""
+#                Boolean is an online, International tech Academy. 
+#
+#                Our **mission** is to make training in the tech field more accessible and smart, giving everyone the opportunity to create a career from scratch. \
+#                Every day we continue developing and improving a teaching method that allows people to learn complete, concrete and specific concepts in a short time.
+#
+#                Transform your career in just 4 months with our part-time course in **Data Analytics**, designed to teach you how to master data analysis. \
+#                
+#                Enroll now to begin your journey!
+#                """)
+#    st.link_button("🇮🇹 Data Analytics IT", "https://boolean.careers/corso/data-analytics")
+#    st.link_button("🇬🇧 Data Analytics UK", "https://boolean.co.uk/course/part-time-data-analytics-online-course")
     
 
 
