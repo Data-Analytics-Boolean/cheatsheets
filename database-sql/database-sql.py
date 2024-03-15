@@ -175,13 +175,27 @@ def sql_segment():
 
     with join_tab:
         st_code_block("sql_ref_join", 
-                      "The `JOIN` allows you to combines rows from two or more tables, based on a related column between them. The type of join (`INNER`, `LEFT`, `RIGHT`, `FULL OUTER`) determines how rows from the joined tables are combined and returned.",
+                      "The `JOIN` clause is a powerful tool used to combine data from two or more tables based on a specific relationship. \
+                        It's like merging information from separate spreadsheets into a single, unified view. \
+                        The type of join (`INNER`, `LEFT`, `RIGHT`, `FULL OUTER`) determines how rows from the joined tables are combined and returned.",
         """
         SELECT table1.column1, table2.column2 
         FROM table1 LEFT JOIN table2 
         ON table1.common_column = table2.common_column;
         """
         )
+        st.markdown("##### Types of JOINs")
+        st.markdown("""
+                    There are different types of `JOIN` depending on how you want to handle unmatched rows:
+                    - `INNER JOIN`: This is probably one of the most common types. It only includes rows where there's a match in both tables. 
+                    - `LEFT JOIN`: This includes all rows from the left table (usually the "main" table), even if there's no match in the right table. Empty values (nulls) are used for unmatched rows in the right table. 
+                    - `RIGHT JOIN`: Similar to `LEFT JOIN`, but includes all rows from the *right* table and fills unmatched rows in the left table with empty values.
+                    - `FULL JOIN`: This combines all rows from both tables, regardless of whether there's a match. 
+                    """)
+        st.image('database-sql/img/joins.png')
+        st.info("You can also `JOIN` a table with itself (in what is called a self `JOIN`). It can be useful especially in situations where the data presents a hierarchical relationship among its observations.", icon="💡")
+        st.link_button("Read more on the four types of JOIN", "https://learnsql.com/blog/sql-joins-types-explained/")
+        st.link_button("Read more on the self JOIN", "https://learnsql.com/blog/illustrated-guide-sql-self-join/")
 
     with union_tab:
         st_code_block("sql_ref_union", 
@@ -276,11 +290,28 @@ def sql_extra_segment():
                       """
         )
 
+def about_segment(): 
+    st.header("About Boolean")
+    st.markdown("""
+                Boolean is an online, International tech Academy. 
+
+                Our **mission** is to make training in the tech field more accessible and smart, giving everyone the opportunity to create a career from scratch. \
+                Every day we continue developing and improving a teaching method that allows people to learn complete, concrete and specific concepts in a short time.
+
+                Transform your career in just 4 months with our part-time course in **Data Analytics**, designed to teach you how to master data analysis. \
+                
+                Enroll now to begin your journey!
+                """)
+    st.link_button("🇮🇹 Data Analytics IT", "https://boolean.careers/corso/data-analytics")
+    st.link_button("🇬🇧 Data Analytics UK", "https://boolean.co.uk/course/part-time-data-analytics-online-course")
+    
+    
+
 
 def super_tab(): 
     st.title("Databases and SQL", help="Click on the tabs below to explore the different sections.")
-    tab1, tab2, tab3, tab4 = \
-        st.tabs(["Types of Databases", "Google BigQuery", "SQL Cheatsheet", "SQL Extras"])
+    tab1, tab2, tab3, tab4, tab5 = \
+        st.tabs(["Types of Databases", "Google BigQuery", "SQL Cheatsheet", "SQL Extras", "Learn More"])
     with tab1:
         database_segment()
     with tab2: 
@@ -289,6 +320,8 @@ def super_tab():
         sql_segment()
     with tab4:
         sql_extra_segment()
+    with tab5: 
+        about_segment()
 
 super_tab()
         
