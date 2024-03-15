@@ -1,10 +1,21 @@
 import streamlit as st
 import pandas as pd
+import base64
 
-st.image('https://hiringplatform.boolean.careers/images/logo.png', width=200)
+# boolean logo with link to homepage
+st.markdown(
+    """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet&utm_content=pagina_home">
+    <img src="https://hiringplatform.boolean.careers/images/logo.png" width="200"></a>""",
+    unsafe_allow_html=True
+    )
 
 with st.sidebar: 
-    st.image("https://lwfiles.mycourse.app/6368e5089f20781a7e4f1805-public/2c162927114072f9ebbf04043a593fb9.png", width=110)
+    # boolean logo with link to homepage
+    st.markdown(
+    """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet&utm_content=pagina_home">
+    <img src="https://lwfiles.mycourse.app/6368e5089f20781a7e4f1805-public/2c162927114072f9ebbf04043a593fb9.png" width="110"></a>""",
+    unsafe_allow_html=True
+    )
     st.header("About Boolean")
     st.markdown("""
                 Boolean is an online, International tech Academy. 
@@ -16,6 +27,7 @@ with st.sidebar:
                 
                 Enroll now to begin your journey!
                 """)
+    # CTA button with link to course page
     st.link_button("Learn more", "https://boolean.careers/corso/data-analytics?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet&utm_content=pagina_corso", type="primary")   # IT 🇮🇹
     #st.link_button("Learn more UK 🇬🇧", "https://boolean.co.uk/course/part-time-data-analytics-online-course", type="primary")  
 
