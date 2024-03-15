@@ -3,6 +3,40 @@ import pandas as pd
 
 st.image('https://hiringplatform.boolean.careers/images/logo.png', width=200)
 
+with st.sidebar: 
+    st.image("https://lwfiles.mycourse.app/6368e5089f20781a7e4f1805-public/2c162927114072f9ebbf04043a593fb9.png", width=110)
+    st.header("About Boolean")
+    st.markdown("""
+                Boolean is an online, International tech Academy. 
+
+                Our mission is to **make training in the tech field more accessible** and smart, giving everyone the opportunity to create a career from scratch. \
+                Every day we continue developing and improving a **teaching method** that allows people to learn complete, concrete and specific concepts in a short time.
+
+                Transform your career in just 4 months with our **part-time course in Data Analytics**, designed to teach you how to master data analysis. \
+                
+                Enroll now to begin your journey!
+                """)
+    st.link_button("Learn more", "https://boolean.careers/corso/data-analytics", type="primary")  
+
+
+def about_segment(): 
+    st.header("About Boolean")
+    st.markdown("""
+                Boolean is an online, International tech Academy. 
+
+                Our **mission** is to make training in the tech field more accessible and smart, giving everyone the opportunity to create a career from scratch. \
+                Every day we continue developing and improving a teaching method that allows people to learn complete, concrete and specific concepts in a short time.
+
+                Transform your career in just 4 months with our part-time course in **Data Analytics**, designed to teach you how to master data analysis. \
+                
+                Enroll now to begin your journey!
+                """)
+    st.link_button("🇮🇹 Data Analytics IT", "https://boolean.careers/corso/data-analytics")
+    st.link_button("🇬🇧 Data Analytics UK", "https://boolean.co.uk/course/part-time-data-analytics-online-course")
+    
+    
+
+
 def st_code_block(url=None, caption=None, code=None):
     # prefill the http address for the sql-reference url
     #if not url.startswith("https"):
@@ -289,23 +323,6 @@ def sql_extra_segment():
                       - [YouTube: SQL - Full Course for Beginners](https://www.youtube.com/watch?v=HXV3zeQKqGY): A video tutorial covering SQL fundamentals.
                       """
         )
-
-def about_segment(): 
-    st.header("About Boolean")
-    st.markdown("""
-                Boolean is an online, International tech Academy. 
-
-                Our **mission** is to make training in the tech field more accessible and smart, giving everyone the opportunity to create a career from scratch. \
-                Every day we continue developing and improving a teaching method that allows people to learn complete, concrete and specific concepts in a short time.
-
-                Transform your career in just 4 months with our part-time course in **Data Analytics**, designed to teach you how to master data analysis. \
-                
-                Enroll now to begin your journey!
-                """)
-    st.link_button("🇮🇹 Data Analytics IT", "https://boolean.careers/corso/data-analytics")
-    st.link_button("🇬🇧 Data Analytics UK", "https://boolean.co.uk/course/part-time-data-analytics-online-course")
-    
-    
 
 
 def super_tab(): 
