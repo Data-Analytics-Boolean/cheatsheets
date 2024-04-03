@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import base64
 
 # Initial page config
 st.set_page_config(
@@ -8,6 +7,12 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+# Main function to set up the Streamlit app layout
+def main(): 
+    sidebar_info()
+    main_tab()
+    return None
 
 # PDF downloader function
 def pdf_download(name):
@@ -28,99 +33,78 @@ st.markdown(
     unsafe_allow_html=True
     )
 
-with st.sidebar: 
-    # boolean logo with link to homepage
-    st.markdown(
-    """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet_py&utm_content=pagina_home">
-    <img src="https://lwfiles.mycourse.app/6368e5089f20781a7e4f1805-public/2c162927114072f9ebbf04043a593fb9.png" width="110"></a>""",
-    unsafe_allow_html=True
-    )
-    st.header("About Boolean")
-    st.markdown("""
-                Boolean is an online, International tech Academy. 
+# Sidebar info
+def sidebar_info(): 
+    with st.sidebar: 
+        # boolean logo with link to homepage
+        st.markdown(
+        """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet_py&utm_content=pagina_home">
+        <img src="https://lwfiles.mycourse.app/6368e5089f20781a7e4f1805-public/2c162927114072f9ebbf04043a593fb9.png" width="110"></a>""",
+        unsafe_allow_html=True
+        )
+        st.header("About Boolean")
+        st.markdown("""
+                    Boolean is an online, International tech Academy. 
 
-                Our mission is to **make training in the tech field more accessible** and smart, giving everyone the opportunity to create a career from scratch. \
-                Every day we continue developing and improving a **teaching method** that allows people to learn complete, concrete and specific concepts in a short time.
+                    Our mission is to **make training in the tech field more accessible** and smart, giving everyone the opportunity to create a career from scratch. \
+                    Every day we continue developing and improving a **teaching method** that allows people to learn complete, concrete and specific concepts in a short time.
 
-                Transform your career in just 4 months with our **part-time course in Data Analytics**, designed to teach you how to master data analysis. \
-                
-                Enroll now to begin your journey!
-                """)
-    # CTA button with link to course page
-    st.link_button("Learn more", "https://boolean.careers/corso/data-analytics?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet_py&utm_content=pagina_corso", type="primary")   # IT 🇮🇹
-    #st.link_button("Learn more UK 🇬🇧", "https://boolean.co.uk/course/part-time-data-analytics-online-course", type="primary")  
+                    Transform your career in just 4 months with our **part-time course in Data Analytics**, designed to teach you how to master data analysis. \
+                    
+                    Enroll now to begin your journey!
+                    """)
+        # CTA button with link to course page
+        st.link_button("Learn more", "https://boolean.careers/corso/data-analytics?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet_py&utm_content=pagina_corso", type="primary")   # IT 🇮🇹
+        #st.link_button("Learn more UK 🇬🇧", "https://boolean.co.uk/course/part-time-data-analytics-online-course", type="primary")  
 
-
-def st_code_block(url=None, caption=None, code=None):
-    # prefill the http address for the sql-reference url
-    #if not url.startswith("https"):
-    #    url = f"https://www.w3schools.com/sql/{url}.asp"
-    if caption: 
-        st.markdown(caption)
-    if code: 
-        st.code(code, language="sql")
-    if url: 
-        if not url.startswith("https"):
-            url = f"https://www.w3schools.com/sql/{url}.asp"
-            st.link_button("Read the documentation", url)
-        elif "wikipedia" in url: 
-            st.link_button("Read more on Wikipedia", url)
-        else:
-            st.link_button("Read this article to learn more", url)
-
+# Definition of second level of tabs (starting from First Tab)
 def python_install():
     st.subheader("Python Anaconda and VS Code Installation", help="Click on the tab corresponding to your Operating System.")
     st.markdown("This guide will show you how to download Python using the Anaconda distribution and install VS Code according to your operating system. ")
     win, mac = \
         st.tabs(["Windows", "Mac/Linux"])
     with win:
-        st_code_block(caption="""
-                      #### Python Installation
-                      - Visit the Anaconda website at https://www.anaconda.com/products/individual and download the Anaconda Individual Edition installer for Windows.
-                      - Once the download is complete, run the installer.
-                      - Follow the on-screen instructions to complete the installation. Make sure to check the box that says "Add Anaconda to my PATH environment variable" during the installation process.
-                      - After the installation is finished, open the Anaconda Navigator from the Start menu.
-                      - In the Anaconda Navigator, you can launch Jupyter Notebooks or other Python IDEs like Spyder or JupyterLab.
-                      """
-                      )
+        st.markdown("""
+                    #### Python Installation
+                    - Visit the Anaconda website at https://www.anaconda.com/products/individual and download the Anaconda Individual Edition installer for Windows.
+                    - Once the download is complete, run the installer.
+                    - Follow the on-screen instructions to complete the installation. Make sure to check the box that says "Add Anaconda to my PATH environment variable" during the installation process.
+                    - After the installation is finished, open the Anaconda Navigator from the Start menu.
+                    - In the Anaconda Navigator, you can launch Jupyter Notebooks or other Python IDEs like Spyder or JupyterLab.
+                    """)
         st.link_button("Download Anaconda", "https://www.anaconda.com/products/individual")
-        
-        st_code_block(caption="""
-                        #### VS Code Installation 
-                        - Visit the Visual Studio Code website at https://code.visualstudio.com/ and download the Visual Studio Code installer for Windows.
-                        - Once the download is complete, run the installer.
-                        - Follow the on-screen instructions to complete the installation. Leave the default settings as they are.
-                        - After the installation is finished, you can launch VS Code from the Start menu.
-                        - To enable Python support in VS Code, install the Python extension by Microsoft. You can do this by clicking on the Extensions icon in the sidebar (or by pressing Ctrl+Shift+X), searching for "Python," and clicking on the "Python" extension from Microsoft.
-                      """)
+        st.markdown("""
+                    #### VS Code Installation 
+                    - Visit the Visual Studio Code website at https://code.visualstudio.com/ and download the Visual Studio Code installer for Windows.
+                    - Once the download is complete, run the installer.
+                    - Follow the on-screen instructions to complete the installation. Leave the default settings as they are.
+                    - After the installation is finished, you can launch VS Code from the Start menu.
+                    - To enable Python support in VS Code, install the Python extension by Microsoft. You can do this by clicking on the Extensions icon in the sidebar (or by pressing Ctrl+Shift+X), searching for "Python," and clicking on the "Python" extension from Microsoft.
+                    """)
         st.link_button("Download VS Code", "https://code.visualstudio.com/")
-
         st.info("That's it! After following these steps, you should have Python installed using the Anaconda distribution and VS Code ready to use for both Python scripts and Jupyter Notebooks on Windows.")
 
     with mac:
-        st_code_block(caption="""
-                      #### Python Installation 
-                        - Visit the Anaconda website at https://www.anaconda.com/products/individual and download the Anaconda Individual Edition installer for macOS.
-                        - Once the download is complete, double-click the installer package to start the installation.
-                        - Follow the on-screen instructions to complete the installation. Make sure to check the box that says "Add Anaconda to my PATH environment variable" during the installation process.
-                        - After the installation is finished, open the Anaconda Navigator from the Applications folder.
-                        - In the Anaconda Navigator, you can launch Jupyter Notebooks or other Python IDEs like Spyder or JupyterLab.
-                      """
-                      )
+        st.markdown("""
+                    #### Python Installation 
+                    - Visit the Anaconda website at https://www.anaconda.com/products/individual and download the Anaconda Individual Edition installer for macOS.
+                    - Once the download is complete, double-click the installer package to start the installation.
+                    - Follow the on-screen instructions to complete the installation. Make sure to check the box that says "Add Anaconda to my PATH environment variable" during the installation process.
+                    - After the installation is finished, open the Anaconda Navigator from the Applications folder.
+                    - In the Anaconda Navigator, you can launch Jupyter Notebooks or other Python IDEs like Spyder or JupyterLab.
+                    """)
         st.link_button("Download Anaconda", "https://www.anaconda.com/products/individual")
-        
-        st_code_block(caption="""
-                        #### VS Code Installation 
-                        - Visit the Visual Studio Code website at https://code.visualstudio.com/ and download the Visual Studio Code installer for macOS.
-                        - Once the download is complete, double-click the installer package to start the installation.
-                        - Follow the on-screen instructions to complete the installation. Leave the default settings as they are.
-                        - After the installation is finished, you can launch VS Code from the Applications folder.
-                        - To enable Python support in VS Code, install the Python extension by Microsoft. You can do this by clicking on the Extensions icon in the sidebar (or by pressing Ctrl+Shift+X), searching for "Python," and clicking on the "Python" extension from Microsoft.
-                      """)
+        st.markdown("""
+                    #### VS Code Installation 
+                    - Visit the Visual Studio Code website at https://code.visualstudio.com/ and download the Visual Studio Code installer for macOS.
+                    - Once the download is complete, double-click the installer package to start the installation.
+                    - Follow the on-screen instructions to complete the installation. Leave the default settings as they are.
+                    - After the installation is finished, you can launch VS Code from the Applications folder.
+                    - To enable Python support in VS Code, install the Python extension by Microsoft. You can do this by clicking on the Extensions icon in the sidebar (or by pressing Ctrl+Shift+X), searching for "Python," and clicking on the "Python" extension from Microsoft.
+                    """)
         st.link_button("Download VS Code", "https://code.visualstudio.com/")
-
         st.info("That's it! After following these steps, you should have Python installed using the Anaconda distribution and VS Code ready to use for both Python scripts and Jupyter Notebooks on Mac.")
-
+# Definition of second level of tabs (starting from Second Tab)
 def virtual_env():
     st.subheader("Virtual environments in VS Code", help="Click on the tabs below for a refresher on virtual environments.")
     st.markdown("This section explains what virtual environments are, why they are important, and provides detailed instructions \
@@ -201,7 +185,7 @@ def virtual_env():
                 - *After deactivation, the virtual environment will no longer be active, and you will return to the system's default Python environment.*  
                 - *Remember to activate the virtual environment again whenever you work on the project to ensure that you are using the correct dependencies.*
                 """)
-
+# Definition of second level of tabs (starting from Third Tab)
 def cheatsheets(): 
     python_tab, numpy_tab, pandas_tab, matplotlib_tab = st.tabs(["Python", "NumPy", "pandas", "Matplotlib"])
     
@@ -552,7 +536,7 @@ def cheatsheets():
             # NumPy array creation
             st.markdown('**NumPy Arrays**')
             st.markdown("""
-                        <img src="https://raw.githubusercontent.com/fralfaro/DS-Cheat-Sheets/main/docs/examples/numpy/np_02.png" width="300">""",
+                        <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/np_array.png" width="300">""",
                         unsafe_allow_html=True
                         )
             st.markdown(" ")
@@ -905,7 +889,7 @@ def cheatsheets():
             st.subheader('Pandas Data Structures')
             st.markdown('__Series__')
             st.markdown("""
-                        <img src="https://raw.githubusercontent.com/fralfaro/DS-Cheat-Sheets/main/docs/examples/pandas/serie.png" width="100">""", 
+                        <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/pd_series.png" width="100">""", 
                         unsafe_allow_html=True)
 
             st.markdown('''
@@ -923,7 +907,7 @@ def cheatsheets():
             st.markdown('__DataFrame__')
             st.markdown("A **two-dimensional** labeled data structure with columns of potentially different types.")
             st.markdown("""
-                        <img src="https://raw.githubusercontent.com/fralfaro/DS-Cheat-Sheets/main/docs/examples/pandas/df.png" width="300">""", 
+                        <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/pd_dataframe.png" width="300">""", 
                         unsafe_allow_html=True)
 
             st.code('''
@@ -1193,7 +1177,7 @@ def cheatsheets():
                         Understanding the anatomy of a Matplotlib figure is crucial for creating and customizing your visualizations effectively.
                         ''')
             st.markdown("""
-            <img src="https://raw.githubusercontent.com/fralfaro/DS-Cheat-Sheets/main/docs/examples/matplotlib/mlp_01.png" width="400">""", 
+            <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/mlp_figure.png" width="400">""", 
             unsafe_allow_html=True)
             st.markdown("")
             # Example code for the workflow
@@ -1520,8 +1504,9 @@ def cheatsheets():
                         arrowprops={"arrowstyle": "->", "color": "C1"})
                 ''')
 
-def super_tab(): 
-    st.title("Python", help="Click on the tabs below to explore the different sections.")
+# Definition of first level of tabs (calling the second level tabs)
+def main_tab(): 
+    st.title("Python for Data Analytics", help="Click on the tabs below to explore the different sections.")
     tab1, tab2, tab3 = \
         st.tabs(["Python Installation", "Virtual Environments", "Cheatsheets"])
     with tab1:
@@ -1532,6 +1517,5 @@ def super_tab():
         cheatsheets()
 
 
-
-super_tab()
-        
+if __name__ == "__main__": 
+    main()    
