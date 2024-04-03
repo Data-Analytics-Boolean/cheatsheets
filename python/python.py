@@ -536,7 +536,7 @@ def cheatsheets():
             # NumPy array creation
             st.markdown('**NumPy Arrays**')
             st.markdown("""
-                        <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/np_array.png" width="300">""",
+                        <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/np_array.png" width="500">""",
                         unsafe_allow_html=True
                         )
             st.markdown(" ")
@@ -889,7 +889,7 @@ def cheatsheets():
             st.subheader('Pandas Data Structures')
             st.markdown('__Series__')
             st.markdown("""
-                        <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/pd_series.png" width="100">""", 
+                        <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/pd_series.png" width="150">""", 
                         unsafe_allow_html=True)
 
             st.markdown('''
@@ -907,7 +907,7 @@ def cheatsheets():
             st.markdown('__DataFrame__')
             st.markdown("A **two-dimensional** labeled data structure with columns of potentially different types.")
             st.markdown("""
-                        <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/pd_dataframe.png" width="300">""", 
+                        <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/pd_dataframe.png" width="400">""", 
                         unsafe_allow_html=True)
 
             st.code('''
@@ -1177,7 +1177,7 @@ def cheatsheets():
                         Understanding the anatomy of a Matplotlib figure is crucial for creating and customizing your visualizations effectively.
                         ''')
             st.markdown("""
-            <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/mlp_figure.png" width="400">""", 
+            <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/mlp_figure.png" width="600">""", 
             unsafe_allow_html=True)
             st.markdown("")
             # Example code for the workflow
