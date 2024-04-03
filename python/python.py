@@ -3,12 +3,12 @@ import pandas as pd
 
 # Initial page config
 st.set_page_config(
-    page_title='Python Cheat Sheet',
+    page_title='Python Cheat Sheet - Boolean',
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-# Main function to set up the Streamlit app layout
+# Main function to set up Streamlit app layout
 def main(): 
     sidebar_info()
     main_tab()
@@ -26,7 +26,7 @@ def pdf_download(name):
                         help="*Source: DataCamp*", 
                         type="primary")
 
-# boolean logo with link to homepage
+# Boolean logo with link to homepage
 st.markdown(
     """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet_py&utm_content=pagina_home">
     <img src="https://hiringplatform.boolean.careers/images/logo.png" width="200"></a>""",

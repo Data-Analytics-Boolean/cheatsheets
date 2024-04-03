@@ -1,36 +1,20 @@
 import streamlit as st
 import pandas as pd
 
-# boolean logo with link to homepage
-st.markdown(
-    """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet&utm_content=pagina_home">
-    <img src="https://hiringplatform.boolean.careers/images/logo.png" width="200"></a>""",
-    unsafe_allow_html=True
-    )
+# Initial page config
+st.set_page_config(
+    page_title='Databases and SQL Cheat Sheet - Boolean',
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
-with st.sidebar: 
-    # boolean logo with link to homepage
-    st.markdown(
-    """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet&utm_content=pagina_home">
-    <img src="https://lwfiles.mycourse.app/6368e5089f20781a7e4f1805-public/2c162927114072f9ebbf04043a593fb9.png" width="110"></a>""",
-    unsafe_allow_html=True
-    )
-    st.header("About Boolean")
-    st.markdown("""
-                Boolean is an online, International tech Academy. 
+# Main function to set up Streamlit app layout
+def main(): 
+    sidebar_info()
+    main_tab() 
+    return None
 
-                Our mission is to **make training in the tech field more accessible** and smart, giving everyone the opportunity to create a career from scratch. \
-                Every day we continue developing and improving a **teaching method** that allows people to learn complete, concrete and specific concepts in a short time.
-
-                Transform your career in just 4 months with our **part-time course in Data Analytics**, designed to teach you how to master data analysis. \
-                
-                Enroll now to begin your journey!
-                """)
-    # CTA button with link to course page
-    st.link_button("Learn more", "https://boolean.careers/corso/data-analytics?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet&utm_content=pagina_corso", type="primary")   # IT 🇮🇹
-    #st.link_button("Learn more UK 🇬🇧", "https://boolean.co.uk/course/part-time-data-analytics-online-course", type="primary")  
-
-
+# Code block function
 def st_code_block(url=None, caption=None, code=None):
     # prefill the http address for the sql-reference url
     #if not url.startswith("https"):
@@ -48,7 +32,38 @@ def st_code_block(url=None, caption=None, code=None):
         else:
             st.link_button("Read this article to learn more", url)
 
+# Boolean logo with link to homepage
+st.markdown(
+    """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet&utm_content=pagina_home">
+    <img src="https://hiringplatform.boolean.careers/images/logo.png" width="200"></a>""",
+    unsafe_allow_html=True
+    )
 
+# Sidebar info
+def sidebar_info(): 
+    with st.sidebar: 
+        # boolean logo with link to homepage
+        st.markdown(
+        """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet&utm_content=pagina_home">
+        <img src="https://lwfiles.mycourse.app/6368e5089f20781a7e4f1805-public/2c162927114072f9ebbf04043a593fb9.png" width="110"></a>""",
+        unsafe_allow_html=True
+        )
+        st.header("About Boolean")
+        st.markdown("""
+                    Boolean is an online, International tech Academy. 
+
+                    Our mission is to **make training in the tech field more accessible** and smart, giving everyone the opportunity to create a career from scratch. \
+                    Every day we continue developing and improving a **teaching method** that allows people to learn complete, concrete and specific concepts in a short time.
+
+                    Transform your career in just 4 months with our **part-time course in Data Analytics**, designed to teach you how to master data analysis. \
+                    
+                    Enroll now to begin your journey!
+                    """)
+        # CTA button with link to course page
+        st.link_button("Learn more", "https://boolean.careers/corso/data-analytics?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet&utm_content=pagina_corso", type="primary")   # IT 🇮🇹
+        #st.link_button("Learn more UK 🇬🇧", "https://boolean.co.uk/course/part-time-data-analytics-online-course", type="primary")  
+
+# Definition of second level of tabs (starting from First Tab)
 def database_segment():
     st.header("Different ways to store data", help="Click on the tabs below to explore the different types of databases.")
     st.markdown("Let’s start with an introduction on the definition of the several types of databases that you may encounter out there as well as their main differences.")
@@ -83,8 +98,7 @@ def database_segment():
                           index=["Structure", "Data Type and Usage"])
         st.table(df)
         st.link_button("Click here to learn more", "https://www.mongodb.com/databases/data-lake-vs-data-warehouse-vs-database")
-
-
+# Definition of second level of tabs (starting from Second Tab)
 def bigquery_segment():
     st.header("Google BigQuery", help="Click on the tabs below for a refresher on Google BigQuery.")
     st.markdown("Google BigQuery is a fully managed, [serverless](https://en.wikipedia.org/wiki/Serverless_computing) **data warehouse and analytics platform** provided by Google Cloud. \
@@ -132,9 +146,7 @@ def bigquery_segment():
                       - [BigQuery Spotlight YT Series](https://www.youtube.com/watch?v=d3MDxC_iuaw&list=PLIivdWyY5sqLAbIdmcMwsxWg-w8Px34MS): The official Google Cloud YouTube channel offers a comprehensive video series that covers the basics of BigQuery; the topics covered include querying, loading and visualising data. 
                       """,
         )
-
-
-
+# Definition of second level of tabs (starting from Third Tab)
 def sql_segment():
     st.header("SQL Cheatsheet", help="Click on the tabs below to explore the different SQL clauses.")
     st.markdown("SQL, or Structured Query Language, is a powerful tool used for managing and manipulating relational databases. It serves as the primary means for communicating with databases, allowing users to perform various operations like retrieving, updating, inserting, and deleting data.")
@@ -265,7 +277,7 @@ def sql_segment():
         """
         )
         st.info("The `PARTITION BY` attribute is optional but useful for dividing the result set into partitions to apply the window function independently to each partition.", icon="💡")
-
+# Definition of second level of tabs (starting from Fourth Tab)
 def sql_extra_segment(): 
     st.header("SQL Extras", help="Click on the tabs below for some extras on SQL.")
     st.markdown("In this section you will find additional useful information, best practices and resources to enhance your understanding of SQL and boost your learning curve.")
@@ -318,8 +330,8 @@ def sql_extra_segment():
                       """
         )
 
-
-def super_tab(): 
+# Definition of first level of tabs (calling the second level tabs)
+def main_tab(): 
     st.title("Databases and SQL", help="Click on the tabs below to explore the different sections.")
     tab1, tab2, tab3, tab4 = \
         st.tabs(["Types of Databases", "Google BigQuery", "SQL Cheatsheet", "SQL Extras"])
@@ -331,7 +343,6 @@ def super_tab():
         sql_segment()
     with tab4:
         sql_extra_segment()
-
-
-super_tab()
         
+if __name__ == "__main__": 
+    main()    
