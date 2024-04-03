@@ -220,8 +220,7 @@ def cheatsheets():
                         - has a great **community** of users and well written **documentation**
                         """)
 
-            st.button("Read the Docs", 
-                    "https://www.python.org/doc/")
+            st.link_button("Read the Docs", "https://www.python.org/doc/")
         with c_sheet:
             st.markdown("#### Python Cheatsheet")
             st.caption("*Credits: this section is largely inspired by [fralfaro](https://github.com/fralfaro)'s cheatsheet.*")
@@ -301,7 +300,7 @@ def cheatsheets():
                     print("Cannot divide by zero")  
                     print(e)
                     ''')
-                st.button("Read more on try-except", 
+                st.link_button("Read more on try-except", 
                             "https://www.w3schools.com/python/python_try_except.asp", 
                             type='primary')
 
@@ -415,7 +414,7 @@ def cheatsheets():
                 my_dict['a']  # Returns 1  
                     ''')
                 
-                st.button("More on Data Structures", 
+                st.link_button("More on Data Structures", 
                             "https://realpython.com/python-data-structures/", 
                             type="primary")
 
@@ -456,7 +455,7 @@ def cheatsheets():
                     print(x)
                     x -= 1
                     ''')
-                st.button("Read more on control structures", 
+                st.link_button("Read more on control structures", 
                             "https://www.educative.io/answers/what-are-control-flow-statements-in-python", 
                             type='primary')
                 
@@ -475,7 +474,7 @@ def cheatsheets():
                 # Call the greet function with the argument "Alice"
                 greeting = greet("Alice")
                     ''')
-                st.button("More on Python functions", 
+                st.link_button("More on Python functions", 
                             "https://realpython.com/defining-your-own-python-function/", 
                             type="primary")
 
@@ -491,7 +490,7 @@ def cheatsheets():
                 # Find the minimum value in a list
                 min_number = min(numbers)
                     ''')
-                #st.button("Python's built-in functions", 
+                #st.link_button("Python's built-in functions", 
                 #            "https://docs.python.org/3/library/functions.html", 
                 #            type='primary')
 
@@ -504,7 +503,7 @@ def cheatsheets():
                 from random import randint
                 random_number = randint(1, 10)  # Generate a random number between 1 and 10
                     ''')
-                st.button("More on libraries vs modules", 
+                st.link_button("More on libraries vs modules", 
                             "https://realpython.com/lessons/scripts-modules-packages-and-libraries/", 
                             type='primary')
                 
@@ -526,7 +525,7 @@ def cheatsheets():
 
                         my_dog = Dog("Buddy", 3)
                         ''')
-                st.button("Learn more on Classes", 
+                st.link_button("Learn more on Classes", 
                             "https://realpython.com/python-classes/", 
                             type="primary")
 
@@ -539,7 +538,7 @@ def cheatsheets():
                         Python. It provides a high-performance multidimensional array
                         object, and tools for working with these arrays.
                         """)
-            st.button("Read the Docs", "https://numpy.org/devdocs/user/")
+            st.link_button("Read the Docs", "https://numpy.org/devdocs/user/")
             
             # NumPy installation and import
             st.markdown('**Install and import NumPy**')
@@ -892,7 +891,7 @@ def cheatsheets():
                         [Pandas](https://pandas.pydata.org/) is built on NumPy and provides easy-to-use
                         data structures and data analysis tools for the Python programming language.
                         """)
-            st.button("Read the Docs", "https://pandas.pydata.org/docs/")
+            st.link_button("Read the Docs", "https://pandas.pydata.org/docs/")
 
             # Pandas installation and import
             st.markdown('__Install and import Pandas__')
@@ -1180,7 +1179,7 @@ def cheatsheets():
                         [Matplotlib](https://matplotlib.org/) is a Python 2D plotting library which produces publication-quality 
                         figures in a variety of hardcopy formats and interactive environments across platforms.
                         ''')
-            st.button("Read the Docs", "https://matplotlib.org/stable/index.html")
+            st.link_button("Read the Docs", "https://matplotlib.org/stable/index.html")
             # Matplotlib installation and import
             st.markdown('**Install and import Matplotlib**')
             st.code('$ pip install matplotlib')
