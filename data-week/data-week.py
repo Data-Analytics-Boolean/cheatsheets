@@ -30,7 +30,7 @@ def pdf_download(name):
 # Boolean logo with link to homepage
 st.markdown(
     """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet_dataweek&utm_content=pagina_home">
-    <img src="https://hiringplatform.boolean.careers/images/logo.png" width="200"></a>""",
+    <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/boolean-logo-pill.png" width="200"></a>""",
     unsafe_allow_html=True
     )
 
@@ -40,7 +40,7 @@ def sidebar_info():
         # boolean logo with link to homepage
         st.markdown(
         """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet_dataweek&utm_content=pagina_home">
-        <img src="https://lwfiles.mycourse.app/6368e5089f20781a7e4f1805-public/2c162927114072f9ebbf04043a593fb9.png" width="110"></a>""",
+        <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/boolean-logo-pill.png" width="110"></a>""",
         unsafe_allow_html=True
         )
         st.header("About Boolean")
