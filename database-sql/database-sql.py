@@ -6,6 +6,7 @@ st.set_page_config(
     page_title='Databases and SQL Cheat Sheet - Boolean',
     layout="wide",
     initial_sidebar_state="expanded",
+    page_icon="https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/681/original/Pittogramma-RGB-1080-BLUE-circle.png"
 )
 
 # Main function to set up Streamlit app layout
