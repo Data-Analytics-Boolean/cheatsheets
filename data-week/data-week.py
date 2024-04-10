@@ -3,9 +3,10 @@ import pandas as pd
 
 # Initial page config
 st.set_page_config(
-    page_title='Python Cheat Sheet - Boolean',
+    page_title='Data Week Cheatsheet - Boolean',
     layout="wide",
     initial_sidebar_state="expanded",
+    page_icon="https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/681/original/Pittogramma-RGB-1080-BLUE-circle.png"
 )
 
 # Main function to set up Streamlit app layout
