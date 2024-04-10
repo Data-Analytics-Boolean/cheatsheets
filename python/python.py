@@ -187,7 +187,7 @@ def virtual_env():
                 """)
 # Definition of second level of tabs (starting from Third Tab)
 def cheatsheets(): 
-    python_tab, numpy_tab, pandas_tab, matplotlib_tab = st.tabs(["Python", "NumPy", "pandas", "Matplotlib"])
+    python_tab, numpy_tab, pandas_tab, matplotlib_tab, seaborn_tab = st.tabs(["Python", "NumPy", "pandas", "Matplotlib", "seaborn"])
     
     with python_tab:
         about, c_sheet = st.tabs(["About", "Cheatsheet"])
@@ -1503,6 +1503,243 @@ def cheatsheets():
                         ha="center", va="center",
                         arrowprops={"arrowstyle": "->", "color": "C1"})
                 ''')
+
+    with seaborn_tab: 
+        about, c_sheet = st.tabs(["About", "Cheatsheet"])
+        with about: 
+            st.subheader('About seaborn')
+            st.markdown('''
+                        [Seaborn](https://seaborn.pydata.org/index.html) is a library for making statistical graphics in Python. \
+                        It builds on top of [matplotlib](https://matplotlib.org/) and integrates closely with [pandas](https://pandas.pydata.org/) data structures.
+                        ''')
+            st.link_button("Read the Docs", "https://seaborn.pydata.org/tutorial.html")
+            # seaborn installation and import
+            st.markdown('**Install and import seaborn**')
+            st.code('$ pip install seaborn')
+            st.code('''
+                    # Import seaborn convention
+                    import seaborn as sns
+                    ''')
+            # Anatomy of a figure
+            st.markdown('''**Anatomy of a figure**  
+                        Since seaborn is based on Matplotlib, it is important to understanding the anatomy of a Matplotlib **figure**, \
+                        which refers to the overall canvas or window that contains one or more individual plots or subplots. 
+                        ''')
+            st.markdown("""
+            <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/mlp_figure.png" width="600">""", 
+            unsafe_allow_html=True)
+            st.markdown("")
+            # Example code for the workflow
+            st.markdown("Get started with the following basic code snippet. ")
+            st.code('''
+            # Import libraries
+            import matplotlib.pyplot as plt
+            import seaborn as sns
+
+            # Apply the default theme
+            sns.set_theme()
+
+            # Load an example dataset
+            iris = sns.load_dataset("iris")
+
+            # Create a scatterplot
+            sns.scatterplot(
+                data=iris, 
+                x='sepal_length', y='sepal_width', 
+                hue='species'
+            )
+            plt.show()
+                    ''')
+            st.markdown("""
+                        <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/cheatsheets/dw_colab_03.png" width="550">""", 
+                        unsafe_allow_html=True)
+        with c_sheet: 
+            st.markdown("#### Seaborn Cheatsheet")
+            st.caption("*Credits: this section is largely inspired by [datacamp](https://www.datacamp.com/cheat-sheet/python-seaborn-cheat-sheet)'s cheatsheet.*") 
+            # PDF download
+            pdf_download("python-seaborn-cheatsheet")
+            col1, col2, col3 = st.columns(3)  # Create columns for layout
+
+            #######################################
+            # COLUMN 1
+            #######################################
+
+            # Prepare the Data
+            col1.subheader('Setup and data prep')
+
+            col1.code('''
+            # import the libraries 
+            # > use the conventional aliases
+            import matplotlib.pyplot as plt
+            import seaborn as sns
+                ''')
+
+            ## Import the data
+            col1.code('''
+            # let's generate a sample DataFrame
+            import pandas as pd
+            import numpy as np
+            uniform_data = np.random.rand(10, 12)
+            data = pd.DataFrame({
+                      'x':np.arange(1,101), 
+                      'y':np.random.normal(0,4,100)})
+                ''')
+            col1.code('''
+            # seaborn also offers buil-in datasets
+            sns.get_dataset_names()
+            iris = sns.load_dataset("iris")
+            flights = sns.load_dataset("flights")
+            tips = sns.load_dataset("tips")
+                ''')
+            col1.link_button("List of built-in datasets", "https://github.com/mwaskom/seaborn-data")
+
+            ## Figure aesthetics
+            col1.subheader('Figure Aesthetics')
+            col1.code('''
+            # create a figure (of size 5x6 inches) and one subplot
+            f, ax = plt.subplots(figsize=(5,6))
+            ''')
+
+            ## Seaborn styles
+            col1.markdown("**Seaborn styles**")
+            col1.code('''
+            # set the seaborn defaults and 
+            # the matplotlib parameters
+            sns.set()
+            sns.set_style("whitegrid")
+            sns.set_style("ticks",
+                  {"xtick.major.size":8,
+                  "ytick.major.size":8})
+            ''')
+            col1.link_button("Aesthetics Tutorial", "https://seaborn.pydata.org/tutorial/aesthetics.html")
+
+            ## Color palette
+            col1.markdown("**Color palette**")
+            col1.code('''
+            # define the color palette
+            sns.set_palette("husl", 3)
+            
+            # set your own color palette
+            flatui = ["#9b59b6" "#3498db" "#95a5a6" "#e74c3c" "#34495e" "#2ecc71"]
+            sns.set_palette(flatui)
+            ''')
+            col1.link_button("Check seaborn's color palette", "https://seaborn.pydata.org/generated/seaborn.color_palette.html#seaborn.color_palette")
+
+
+            #######################################
+            # COLUMN 2
+            #######################################
+
+            # Plotting
+            col2.subheader('Plotting with seaborn')
+            
+            # scatterplot
+            col2.markdown("""**Scatterplot**  
+                          Useful to visualize the relationship between two numeric variables.""")
+            col2.code('''
+            # create a scatterplot
+            sns.scatterplot(data=iris, 
+                            x='sepal_length', 
+                            y='sepal_width', 
+                            hue='species')
+            ''')
+            
+            # lineplot
+            col2.markdown("""**Lineplot**  
+                          Useful to understand changes in one variable as a function of time.""")
+            col2.code('''
+            # create a lineplot
+            sns.lineplot(data=flights, 
+                         x='year', 
+                         y='passengers', 
+                         hue='month')
+            ''')
+            
+            # barplot
+            col2.markdown("**Barplot**")
+            col2.code('''
+            # create a barplot
+            sns.barplot(data=flights, 
+                        x='month', 
+                        y='passengers', 
+                        ci=None, 
+                        color='c')
+            ''')
+            col2.info("For a horizontal bar chart you can simply swap the 'x' and 'y' variables.", icon="💡")
+
+            # countplot
+            col2.markdown("""**Countplot**  
+                          Useful to count of the number of observations in each category of a certain variable.""")
+            col2.code('''
+            # create a countplot
+            sns.countplot(data=tips, 
+                          y='sex', 
+                          color='c')
+            ''')
+
+            # histogram
+            col2.markdown("""**Histogram**  
+                          Useful to visualise the distribution of one or more numeric variables.""")
+            col2.code('''
+            # create a histogram
+            penguins = sns.load_dataset("penguins")
+            sns.histplot(penguins, 
+                         x="flipper_length_mm")
+                      
+            # overlapping histograms according to species
+            sns.histplot(penguins, 
+                         x="flipper_length_mm", 
+                         hue="species")
+            ''')
+
+            # boxplot
+            col2.markdown("""**Boxplot**  
+                          Another plot to investigate distributions, it shows the three quartile values of the distribution along with extreme values.""")
+            col2.code('''
+            # create a boxplot
+            sns.boxplot(data=penguins, 
+                        x='body_mass_g')
+            
+            # adding a categorical variable allows 
+            # you to compare distributions 
+            sns.boxplot(data=penguins, 
+                        x='body_mass_g', 
+                        y='sex')
+            ''')
+
+            col2.link_button("More on seaborn's plotting functions", "https://seaborn.pydata.org/tutorial.html#plotting-functions")
+
+            #######################################
+            # COLUMN 3
+            #######################################
+
+            
+            col3.subheader('Further Customizations')
+            # Plot parameters
+            col3.markdown("""**Plot parameters**""")
+            col3.code('''
+            plt.title("Your Title")   # add plot title
+            plt.ylabel("your y label")   # adjust the label of the y-axis
+            plt.xlabel("your x label")   # adjust the label of the x-axis
+            plt.ylim(0,100)   # adjust the limits of the y-axis
+            plt.xlim(0,10)   # adjust the limits of the x-axis
+            ''')
+
+            # Show or save plot
+            col3.markdown("**Show or save plot**")
+            col3.code('''
+            plt.show()   # show the plot
+            plt.savefig("fiure.png")   # save the plot as a figure
+            plt.savefig("fiure.png", transparent=True)   # save transparent figure
+            ''')
+
+            # Close and clear
+            col3.markdown("**Close and clear**")
+            col3.code('''
+            plt.cla()   # clear an axis
+            plt.clf()   # clear an entire figure
+            plt.close()   # close a window
+            ''')
 
 # Definition of first level of tabs (calling the second level tabs)
 def main_tab(): 
