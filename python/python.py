@@ -27,6 +27,12 @@ def pdf_download(name):
                         help="*Source: DataCamp*", 
                         type="primary")
 
+# Boolean logo with link to homepage
+st.markdown(
+    """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet_py&utm_content=pagina_home">
+    <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/boolean-logo-pill.png" width="200"></a>""",
+    unsafe_allow_html=True
+    )
 
 # Sidebar info
 def sidebar_info(): 
@@ -1738,15 +1744,7 @@ def cheatsheets():
 
 # Definition of first level of tabs (calling the second level tabs)
 def main_tab(): 
-    st.title("Python for Data Analytics", help="Click on the tabs below to explore the different sections.")
-    
-    # Boolean logo with link to homepage
-    st.markdown(
-        """<a href="https://boolean.careers/?utm_source=streamlit&utm_medium=learn_more&utm_campaign=data_analytics_cheatsheet_py&utm_content=pagina_home">
-        <img src="https://raw.githubusercontent.com/Data-Analytics-Boolean/assets/main/boolean-logo-pill.png" width="200"></a>""",
-        unsafe_allow_html=True
-        )
-    
+    st.title("Python for Data Analytics", help="Click on the tabs below to explore the different sections.")    
     tab1, tab2, tab3 = \
         st.tabs(["Python Installation", "Virtual Environments", "Cheatsheets"])
     with tab1:
